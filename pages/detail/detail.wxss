@@ -1,0 +1,48 @@
+/* pages/detail/detail.wxss */
+block{
+  margin-bottom: 100rpx;
+}
+.page__audio{
+  padding: 50rpx 60rpx;
+}
+audio{
+  position: relative;
+}
+audio .free-MusicProgress{
+  position: absolute;
+  width: 78%;
+  left: 21.7%;
+  background: #C3C3C3;
+}
+audio .free-MusicProgress>view{
+  background: #48c23d;
+  height: 6rpx;
+  width: 0%;
+}
+.bottom-tool{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #F8F8F8;
+}
+.line{
+  width: 100%;
+  height: 1rpx;
+  background-color: #ECECEC;
+}
+.bottom-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 99rpx;
+}
+text{
+  color: #7A7A7A;
+}
+.comment-list{
+  display: flex;
+  flex-direction: row;
+  background-color: #F8F8F8;
+  margin-bottom: 10rpx;
+}

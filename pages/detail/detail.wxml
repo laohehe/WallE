@@ -1,0 +1,251 @@
+<!--pages/detail/detail.wxml-->
+<import src="../../lib/wxParse/wxParse.wxml" />
+<block wx:if="{{category == 0}}">
+  <!-- 插画详情 -->
+  <view class="page">
+    <image src="{{photoDetail.img_url}}" style='width:100%' data-imgurl='{{photoDetail.img_url}}' bindtap='previewImg'></image>
+    <view class="weui-footer">
+      <view class="weui-footer__text">{{photoDetail.title}}|{{photoDetail.pic_info}}</view>
+    </view>
+    <view class="weui-article">
+      <view class="weui-article__section">
+        <view class="weui-article__p">{{photoDetail.forward}}</view>
+      </view>
+      <view class="weui-footer">
+        <view class="weui-footer__text">{{photoDetail.words_info}} </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{category == 3}}">
+  <!-- 问答详情 -->
+  <view clss="page">
+    <view class="page__hd">
+      <view class="page__title">{{oneDetail.question_title}}</view>
+      <view class="page__desc">{{oneDetail.asker.user_name}}问：</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="wxParse" style='font-size:35rpx'>
+            <template is="wxParse" data="{{wxParseData:question_content.nodes}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page__hd">
+      <view class="page__desc">{{oneDetail.answerer.user_name}}答： </view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="wxParse" style='font-size:35rpx'>
+            <template is="wxParse" data="{{wxParseData:answer_content.nodes}}" />
+          </view>
+        </view>
+      </view>
+      <view class="page__bd page__bd_spacing">
+        <view class="weui-footer">
+          <view class="weui-footer__text">{{oneDetail.charge_edt}}{{oneDetail.charge_email}}</view>
+        </view>
+      </view>
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">作者</view>
+        <view class="weui-panel__bd">
+          <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" url="">
+            <block>
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{oneDetail.answerer.web_url}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{oneDetail.answerer.user_name}}{{oneDetail.answerer.wb_name}}</view>
+                <view class="weui-media-box__desc">{{oneDetail.answerer.summary}}</view>
+              </view>
+            </block>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{category == 4}}">
+  <!-- 音乐详情-->
+  <view class="page">
+    <view class="page__audio">
+      <audio bindtimeupdate="MusicStart" src="{{listen_file}}" id="WallEAudio" poster="{{oneDetail.cover}}" controls="true" name="{{oneDetail.title}}" author="{{oneDetail.author.user_name}}">
+        <view class="free-MusicProgress">
+          <view style="width:{{progress}}%;"></view>
+        </view>
+      </audio>
+    </view>
+    <view class="page__hd">
+      <view class="page__title">{{oneDetail.story_title}}</view>
+      <view class="page__desc">文/{{oneDetail.story_author.user_name}}</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="wxParse" style='font-size:35rpx'>
+            <template is="wxParse" data="{{wxParseData:story.nodes}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <view class="weui-footer">
+        <view class="weui-footer__text">{{oneDetail.charge_edt}}{{oneDetail.editor_email}}</view>
+      </view>
+    </view>
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">作者</view>
+      <view class="weui-panel__bd">
+        <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" url="">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{oneDetail.author.web_url}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{oneDetail.story_author.user_name}}{{oneDetail.story_author.wb_name}}</view>
+            <view class="weui-media-box__desc">{{oneDetail.story_author.summary}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{category == 5}}">
+  <!-- 影视 -->
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">{{movieDetail.title}}</view>
+      <view class="page__desc">文/{{movieDetail.user.user_name}}</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="wxParse" style='font-size:35rpx'>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+          </view>
+        </view>
+      </view>
+      <view class="page__bd page__bd_spacing">
+        <view class="weui-footer">
+          <view class="weui-footer__text">{{movieDetail.charge_edt}}{{movieDetail.editor_email}}</view>
+        </view>
+      </view>
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">作者</view>
+        <view class="weui-panel__bd">
+          <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" url="">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{movieDetail.user.web_url}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{movieDetail.user.user_name}}{{movieDetail.user.wb_name}}</view>
+              <view class="weui-media-box__desc">{{movieDetail.user.summary}}</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="page">
+    <view class="page__hd">
+      <view wx:if="{{category == 2}}" class="page__title">{{oneDetail.title}}</view>
+      <view wx:else class="page__title">{{oneDetail.hp_title}}</view>
+      <view wx:if="{{category == 2}}" class="page__desc">文/{{oneDetail.author.user_name}}</view>
+      <view wx:elif="{{category == 1}}" class="page__desc">文/{{oneDetail.author[0].user_name}}</view>
+      <view wx:else class="page__desc">文/{{oneDetail.hp_author}}</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="wxParse" style='font-size:35rpx'>
+            <template is="wxParse" data="{{wxParseData:hp_content.nodes}}" />
+          </view>
+        </view>
+      </view>
+      <view class="page__bd page__bd_spacing">
+        <view class="weui-footer">
+          <view wx:if="{{category == 2 }}" class="weui-footer__text">{{oneDetail.charge_edt}}{{oneDetail.editor_email}}</view>
+          <view wx:else class="weui-footer__text">{{oneDetail.hp_author_introduce}}{{oneDetail.editor_email}}</view>
+        </view>
+      </view>
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">作者</view>
+        <view class="weui-panel__bd">
+          <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" url="">
+            <block wx:if="{{category == 2}}">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{oneDetail.author.web_url}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{oneDetail.author.user_name}}{{oneDetail.author.wb_name}}</view>
+                <view class="weui-media-box__desc">{{oneDetail.author.summary}}</view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{oneDetail.author[0].web_url}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{oneDetail.author[0].user_name}}{{oneDetail.author[0].wb_name}}</view>
+                <view class="weui-media-box__desc">{{oneDetail.author[0].summary}}</view>
+              </view>
+            </block>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="weui-cells__title">评论列表</view>
+<block wx:for="{{commentListView}}">
+  <view class='comment-list'>
+    <view style='flex:0.5'></view>
+    <view style='flex:2'>
+      <image src="{{item.avatarUrl}}" style="margin-left: 5px;vertical-align: middle;width:60rpx; height: 60rpx;" />
+    </view>
+    <view style='flex:12'>
+      <view style='display:flex;flex-direction:row'>
+        <view style='flex:10'>
+          <text>{{item.nickName}}</text>
+        </view>
+        <view style='flex:1.5'>
+          <image wx:if='{{item.isStar}}' src="../../images/comnStared.png" style='height:40rpx;width:40rpx'></image>
+          <image wx:else src="../../images/comnStar.png" style='height:40rpx;width:40rpx' bindtap='comnStar' data-openid='{{item.openid}}' data-comnId='{{item.comnId}}' data-isStar='{{item.isStar}}' data-index='{{index}}'></image>
+        </view>
+        <view style='flex:1'>
+          <text>{{item.starnum}}</text>
+        </view>
+      </view>
+      <view>
+        <text>{{item.comment}}</text>
+      </view>
+    </view>
+  </view>
+</block>
+<view>
+  <text>\t\n\n</text>
+</view>
+<view class='bottom-tool'>
+  <view class='line'></view>
+  <view class='bottom-btn'>
+    <view style='flex:3'>
+    </view>
+    <view style='flex:1'>
+      <image wx:if='{{collectionStatus}}' style='width:50rpx;height:50rpx' src='../../images/collected.png' bindtap='cancelCollect'></image>
+      <image wx:else style='width:45rpx;height:45rpx' src='../../images/collect.png' bindtap='collect'></image>
+      <text>{{collectionNum}}</text>
+    </view>
+    <view style='flex:1'>
+      <image style='width:45rpx;height:45rpx' src='../../images/comments.png' bindtap='comment'></image>
+      <text>{{commentNum}}</text>
+    </view>
+  </view>
+</view>
+
+<loading hidden="{{hidden}}">
+  加载中...
+</loading>

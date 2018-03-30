@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/more/more",
+    "pages/me/me",
+    "pages/comment/comment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WallE读",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#878787"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "selectedIconPath": "images/selectedHome.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "home"
+      },
+      {
+        "selectedIconPath": "images/selectedStar.png",
+        "iconPath": "images/star.png",
+        "pagePath": "pages/more/more",
+        "text": "star"
+      },
+      {
+        "selectedIconPath": "images/selectedMe.png",
+        "iconPath": "images/me.png",
+        "pagePath": "pages/me/me",
+        "text": "me"
+      }
+    ],
+    "color": "#B0B0B0",
+    "selectedColor": "#000000",
+    "borderStrle": "White",
+    "backgroundColor": "#F8F8F8"
+  }
+}

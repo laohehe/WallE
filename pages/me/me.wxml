@@ -1,0 +1,43 @@
+<!--pages/me/me.wxml-->
+<view>
+  <wxc-cc class="demo">
+    <view class="demo__wrapper">
+      <wxc-avatar class="avatar" src="{{userInfo.avatarUrl}}"></wxc-avatar>
+      <view class="br"></view>
+      <view class="demo__text">{{userInfo.nickName}}</view>
+    </view>
+  </wxc-cc>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">关于</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">版本</view>
+        <view class="weui-media-box__desc">V1.0.0</view>
+      </view>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">关于WallE读</view>
+        <view class="weui-media-box__desc">一款文艺简洁的阅读工具，开启阅读新体验</view>
+      </view>
+    </view>
+    <view class="weui-panel__hd">作者</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">在新浪微博关注我</view>
+        <view class="weui-media-box__desc">@请叫我老何he</view>
+      </view>
+      <image style='margin-left:50rpx' src="../../images/weiboMe.png" mode='widthFix' bindtap='previewQR'></image>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">在GitHub关注我</view>
+        <view class="weui-media-box__desc">https://github.com/laohehe</view>
+      </view>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">代码贡献</view>
+        <view class="weui-media-box__desc">https://github.com/laohehe/WallE</view>
+      </view>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">反馈/建议</view>
+        <view class="weui-media-box__desc">如果您有好的建议（bug），请尽情地微博私信告知</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/comment/comment.wxml-->
+<view class='page' xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class='page_hd'></view>
+  <view class='page-bd'>
+    <view class="weui-cells__title">评论</view>
+    <form bindsubmit='comnSubmit'>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" maxlength="200" placeholder="请输入您的评论" style="height: 3.3em" bindinput='textChange' bindblur='bindTextAreaBlur' value='{{comment}}' />
+            <view class="weui-textarea-counter">{{length}}/200</view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="default" plain="true" form-type='submit'>提交评论</button>
+      </view>
+    </form>
+  </view>
+</view>

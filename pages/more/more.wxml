@@ -1,0 +1,31 @@
+<!--pages/more/more.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <block wx:for="{{content_list}}">
+          <block wx:if="{{item.category != 6&&item.category != 8}}">
+            <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" url="../detail/detail?category={{item.category}}&item_id={{item.item_id}}&from=collect">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{item.img_url}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view wx:if="{{item.category == 0}}" class="weui-media-box__title">{{item.title}}|{{item.pic_info}}</view>
+                <view wx:elif="{{item.category == 1}}" class="weui-media-box__title">阅读|{{item.title}}</view>
+                <view wx:elif="{{item.category == 2}}" class="weui-media-box__title">连载|{{item.title}}</view>
+                <view wx:elif="{{item.category == 3}}" class="weui-media-box__title">问答|{{item.title}}</view>
+                <view wx:elif="{{item.category == 4}}" class="weui-media-box__title">音乐|{{item.title}}</view>
+                <view wx:elif="{{item.category == 5}}" class="weui-media-box__title">影视|{{item.title}}</view>
+                <view wx:elif="{{item.category == 8}}" class="weui-media-box__title">电台|{{item.title}}</view>
+                <view class="weui-media-box__desc">{{item.forward}}</view>
+              </view>
+            </navigator>
+          </block>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<loading hidden="{{hidden}}">
+        加载中...
+</loading>

@@ -1,0 +1,19 @@
+{
+  "name": "WallE读",
+  "description": "一款文艺清新的移动阅读工具",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laohehe/WallE.git"
+  },
+  "author": "laohehe",
+  "license": "MIT",
+  "dependencies": {
+    "@minui/wxc-avatar": "^1.0.2",
+    "@minui/wxc-cc": "^1.0.1",
+    "@minui/wxc-icon": "^1.0.6"
+  },
+  "bugs": {
+    "email" : "yvanhn@foxmail.com"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "wxc-cc": "../../lib/@minui/wxc-cc/dist/index",
+    "wxc-avatar": "../../lib/@minui/wxc-avatar/dist/index"
+  }
+}

@@ -1,0 +1,24 @@
+/* pages/me/me.wxss */
+  .demo {
+    display: block;
+    width: 100%;
+    height: 400rpx;
+    background: #f2f2f2;
+  }
+  .demo__pic {
+    width: 200rpx;
+    height: 200rpx;
+    margin: 15rpx;
+  }
+  .demo__text {
+    text-align: center;
+    font-size: larger;
+  }
+  .avatar {
+    display: block;
+    width: 160rpx;
+    height: 160rpx;
+  }
+  .br {
+    height: 25rpx;
+  }
